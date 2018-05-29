@@ -8,18 +8,18 @@
 	<script>
 		/*units=metric in URL turns kelvin into celsius*/
 
-		var userInput = $('#search').val(); 
-
 		$(document).ready(function(){
 			$('form').submit(function(){
-				$.get("http://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&appid=7adb44f19e53d3ab7d3970509bdb4cf5" + "&units=metric", function(e){
-					e.preventDefault();
-					console.log(e);
-					var html_str = "";
-					html_str += "<h2>" + e.name + "</h2>";
-					html_str += "<h4>" + e.temp + "</h4>";
-					$('div').html(html_str);
-				}, "JSON")
+				e.preventDefault();
+					var userInput = $('#search').val(); 
+				var userInput = $('#search').val(); 
+					$.get("http://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&&appid=7adb44f19e53d3ab7d3970509bdb4cf5" + "&units=metric", function(e){
+						console.log(e);
+						var html_str = "";
+						html_str += "<h2>" + e.name + "</h2>";
+						html_str += "<h4>" + e.temp + "</h4>";
+						$('div').html(html_str);
+					}, "JSON")
 			})
 
 		})
