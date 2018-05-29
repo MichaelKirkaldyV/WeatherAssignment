@@ -8,25 +8,21 @@
 	<script>
 		/*units=metric in URL turns kelvin into celsius*/
 
-		var userInput = input.value(); 
+		var userInput = $('#search').val(); 
 
 		$(document).ready(function(){
 			$('form').submit(function(){
-				$.get("http://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&appid=7adb44f19e53d3ab7d3970509bdb4cf5" + "&units=metric", function(res){
-					console.log(res);
+				$.get("http://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&appid=7adb44f19e53d3ab7d3970509bdb4cf5" + "&units=metric", function(e){
+					e.preventDefault();
+					console.log(e);
 					var html_str = "";
-					html_str += "<h2>" + res.name + "</h2>";
-					html_str += "<h4>" + res.temp + "</h4>";
+					html_str += "<h2>" + e.name + "</h2>";
+					html_str += "<h4>" + e.temp + "</h4>";
 					$('div').html(html_str);
-
-
 				}, "JSON")
 			})
 
 		})
-		
-
-
 
 	</script>
 </head>
@@ -34,9 +30,10 @@
 	<div id="container">
 		<h1>Weather API</h1>
 		<form>
-			<input type="text" name="searchbar" class="search">
+			<input type="text" name="searchbar" id="search">
 			<input type="submit" name="Seach Weather" class="button">
 		</form>
+		<div id=""
 	</div>
 
 </body>
